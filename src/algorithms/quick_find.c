@@ -1,3 +1,10 @@
+// quick_find.c - Mike Lollar
+// Simple algorithm for determining if two nodes are connected
+// and connecting two nodes if not.
+//
+// DEFECTS:
+// Union is too expensive (possibility for N array accesses and N-1 array writes)
+// Trees are flat but expensive to maintain
 #include <stdio.h>
 
 #define SIZE 10
@@ -22,7 +29,7 @@ void unite(int *id, int p, int q) {
 }
 
 int main() {
-  int id[SIZE]   = { 0,1,2,3,4,5,6,7,8,9 };
+  int id[SIZE] = { 0,1,2,3,4,5,6,7,8,9 };
 
   for(int i = 0; i < SIZE - 1; i++) {
     printf("Checking if %d and %d are connected: %d\n", i, i+1, connected(id, i, i+1));
